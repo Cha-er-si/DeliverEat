@@ -35,4 +35,20 @@ export class UserAuthenticationService {
     return this.http.post('http://localhost:5000/user/register', credentials);
     // return this.http.post("/user/register", credentials);
   }
+
+  changePassword(email: string, oldPassword: string, newPassword: string) {
+    let credentials = {
+      email,
+      oldPassword,
+      newPassword,
+    };
+
+    // console.log({ credentials });
+
+    return this.http.post(
+      'http://localhost:5000/user/change-password',
+      credentials
+    );
+    // return this.http.post("/user/register", credentials);
+  }
 }

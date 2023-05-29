@@ -115,4 +115,34 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/change-password", async (req, res) => {
+  try {
+    const { email, oldPassword, newPassword } = req.body;
+
+    if (await userExists(email)) {
+      const user = await User.findOne({
+        email: email.toLowerCase().trim(),
+      });
+
+      await bcyrpt.compare(oldPassword, user.password).then(async (isMatch) => {
+        if (!isMatch) {
+          return res.status(401).json({ error: "Invalid credentials." });
+        }
+
+        Object.assign(user, { password: newPassword });
+
+        user.save();
+
+        return res.status(200).json({ trans: "success" });
+      });
+    } else {
+      return res
+        .status(401)
+        .json({ trans: "failed", error: "User does not exist" });
+    }
+  } catch (error) {
+    return res.status(500).json({ trans: "failed", error: error.message });
+  }
+});
+
 module.exports = router;
