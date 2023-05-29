@@ -1,0 +1,50 @@
+<ion-content>
+  <div class="login-container">
+    <div class="login-header">
+      <h5>Deliver<span>Eat</span></h5>
+      <p>Bringing your cravings right at your doorstep!</p>
+    </div>
+    <div class="login-body">
+      <div class="login-body-header">
+        <div class="welcome-container">
+          <ion-icon name="log-in"></ion-icon>
+          <h5>Welcome!</h5>
+        </div>
+        <p>Sign in to your account</p>
+      </div>
+      <div class="login-body-content">
+        <ion-item lines="none">
+          <ion-icon name="at-circle"></ion-icon>
+          <ion-input
+            label="Username"
+            labelPlacement="floating"
+            placeholder="Enter your username"
+            [(ngModel)]="username"
+          >
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <app-password-toggle-show-hide>
+            <ion-icon name="lock-closed"></ion-icon>
+            <ion-input
+              label="Password"
+              labelPlacement="floating"
+              placeholder="Enter your password"
+              type="password"
+              [(ngModel)]="password"
+            ></ion-input>
+          </app-password-toggle-show-hide>
+        </ion-item>
+        <div class="change-password-container">
+          <p class="change-password" routerLink="/change-password">
+            Forgot Password?
+          </p>
+        </div>
+        <ion-button expand="block" (click)="login()">LOGIN</ion-button>
+        <p class="sign-up">
+          Don't have an account? <span routerLink="/registration">Sign Up</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>
