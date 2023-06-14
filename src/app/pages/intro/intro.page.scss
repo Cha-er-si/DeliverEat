@@ -143,6 +143,9 @@ ion-content {
 
     swiper-container {
       swiper-slide {
+        .image-container {
+          padding-inline: 35%;
+        }
         h3 {
           font-size: 3.3rem;
         }

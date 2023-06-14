@@ -9,11 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HttpClientModule } from '@angular/common/http';
 import { register } from 'swiper/element/bundle';
+import { DashboardTabsPage } from './pages/dashboard-tabs/dashboard-tabs.page';
 
 register();
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DashboardTabsPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
