@@ -26,25 +26,26 @@ ion-content {
       padding-inline: 1rem;
 
       img {
-        margin-top: 2rem;
+        margin-block: 2rem;
       }
 
       p {
         text-align: center;
         color: white;
         font-size: 1.2rem;
-        margin-top: -1rem;
       }
     }
 
     .body {
       position: relative;
+      height: 100%;
+      width: 100%;
 
       img {
         position: absolute;
         left: 30%;
         transform: translateX(-50%);
-        margin-top: 10%;
+        margin-top: 3rem;
       }
     }
   }
@@ -56,7 +57,7 @@ ion-content {
     .container {
       .body {
         img {
-          margin-top: -10%;
+          margin-top: -1rem;
         }
       }
     }
@@ -79,7 +80,7 @@ ion-content {
 
       .body {
         img {
-          margin-top: -5%;
+          margin-top: -3rem;
         }
       }
     }
