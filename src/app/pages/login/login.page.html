@@ -1,20 +1,15 @@
 <ion-content>
   <div class="login-container">
     <div class="login-header">
-      <h5>Deliver<span>Eat</span></h5>
-      <p>Bringing your cravings right at your doorstep!</p>
+      <img src="assets/images/logo/Logo Normal.png" />
     </div>
     <div class="login-body">
-      <div class="login-body-header">
-        <div class="welcome-container">
-          <ion-icon name="log-in"></ion-icon>
-          <h5>Welcome!</h5>
-        </div>
-        <p>Sign in to your account</p>
+      <div class="body-header">
+        <h5>LOGIN</h5>
       </div>
-      <div class="login-body-content">
+      <div class="body-content">
         <ion-item lines="none">
-          <ion-icon name="at-circle"></ion-icon>
+          <ion-icon name="person"></ion-icon>
           <ion-input
             label="Username"
             labelPlacement="floating"
@@ -37,12 +32,28 @@
         </ion-item>
         <div class="change-password-container">
           <p class="change-password" routerLink="/change-password">
-            Forgot Password?
+            Recover Password
           </p>
         </div>
-        <ion-button expand="block" (click)="login()">LOGIN</ion-button>
+        <ion-button expand="block" (click)="login()">SIGN IN</ion-button>
+        <div class="sign-using">
+          <div class="line"></div>
+          <p>Sign In Using</p>
+          <div class="line"></div>
+        </div>
+        <div class="other-sign-method">
+          <ion-button>
+            <img src="assets/images/login/logos_facebook.png" />
+          </ion-button>
+          <ion-button>
+            <img src="assets/images/login/flat-color-icons_google.png" />
+          </ion-button>
+          <ion-button>
+            <img src="assets/images/login/devicon_twitter.png" />
+          </ion-button>
+        </div>
         <p class="sign-up">
-          Don't have an account? <span routerLink="/registration">Sign Up</span>
+          New to DeliverEat? <span routerLink="/registration">Register</span>
         </p>
       </div>
     </div>

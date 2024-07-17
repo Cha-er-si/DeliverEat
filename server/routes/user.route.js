@@ -40,6 +40,7 @@ router.get("/", verifyAccessToken, async (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
+  debugger;
   try {
     const { firstName, lastName, email, username, password } = req.body;
 

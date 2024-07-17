@@ -1,46 +1,21 @@
 <ion-content>
-  <ion-fab slot="fixed" horizontal="end">
-    <ion-fab-button routerLink="/login" color="light"
-      >{{buttonLabel}}</ion-fab-button
-    >
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/login" color="light">
+      <p>{{buttonLabel}}</p>
+      <ion-icon color="primary" icon="chevron-forward-outline"></ion-icon>
+    </ion-fab-button>
   </ion-fab>
 
-  <swiper-container
-    #swiper
-    (slidechange)="onSlideChange()"
-    effect="coverflow"
-    pagination="true"
-    space-between="1000"
-  >
-    <swiper-slide>
-      <div class="image-container">
-        <img src="../../../assets/images/intro/eating.svg" />
-      </div>
-      <h3>Welcome to DeliverEat</h3>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="image-container">
-        <img src="../../../assets/images/intro/shopping.svg" />
-      </div>
-      <h3>Enjoy restaurant-quality meals at your fingertips</h3>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="image-container">
-        <img src="../../../assets/images/intro/groceries.svg" />
-      </div>
-      <h3>Quick and easy ordering</h3>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="image-container">
-        <img src="../../../assets/images/intro/deliveries.svg" />
-      </div>
-      <h3>Delivered straight to your door</h3>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="image-container">
-        <img src="../../../assets/images/intro/support.svg" />
-      </div>
-      <h3>Get started and explore your options now!</h3>
-    </swiper-slide>
-  </swiper-container>
+  <div class="container">
+    <div class="header">
+      <img src="assets/images/logo/Logo White.png" />
+      <p>
+        Crave no more, just tap and explore, as we deliver foodie dreams right
+        to your door!
+      </p>
+    </div>
+    <div class="body">
+      <img src="assets/images/intro/pose01_male.png" />
+    </div>
+  </div>
 </ion-content>
