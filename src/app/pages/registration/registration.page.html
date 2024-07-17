@@ -1,15 +1,11 @@
 <ion-content>
   <div class="register-container">
     <div class="register-header">
-      <h5>Deliver<span>Eat</span></h5>
-      <p>Bringing your cravings right at your doorstep!</p>
+      <img src="assets/images/logo/Logo Normal.png" />
     </div>
     <div class="register-body">
       <div class="register-body-header">
-        <div class="sign-up-container">
-          <ion-icon name="people"></ion-icon>
-          <h5>Sign Up</h5>
-        </div>
+        <h5>REGISTER</h5>
       </div>
       <div class="register-body-content">
         <form [formGroup]="regForm" #form="ngForm">
@@ -127,23 +123,26 @@
               </ng-container>
             </div>
           </div>
-          <div class="buttons">
-            <ion-button expand="block" (click)="register()">SIGN UP</ion-button>
+          <ion-button expand="block" (click)="register()">SIGN UP</ion-button>
+          <div class="sign-using">
             <div class="line"></div>
-            <div class="other-sign-up">
-              <ion-button expand="block">
-                <ion-icon name="logo-google"></ion-icon> SIGN UP USING
-                GOOGLE</ion-button
-              >
-              <ion-button expand="block">
-                <ion-icon name="logo-facebook"></ion-icon> SIGN UP USING
-                FACEBOOK</ion-button
-              >
-            </div>
+            <p>Sign In Using</p>
+            <div class="line"></div>
+          </div>
+          <div class="other-sign-method">
+            <ion-button>
+              <img src="assets/images/login/logos_facebook.png" />
+            </ion-button>
+            <ion-button>
+              <img src="assets/images/login/flat-color-icons_google.png" />
+            </ion-button>
+            <ion-button>
+              <img src="assets/images/login/devicon_twitter.png" />
+            </ion-button>
           </div>
           <p class="sign-in">
-            Already have an account?
-            <span routerLink="/login">Sign In</span>
+            Already a Member?
+            <span routerLink="/login">Login</span>
           </p>
         </form>
       </div>

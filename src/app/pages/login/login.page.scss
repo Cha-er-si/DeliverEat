@@ -1,8 +1,10 @@
 ion-content {
-  .container {
+  .login-container {
     height: 100%;
+    display: flex;
+    flex-direction: column;
 
-    .header {
+    .login-header {
       padding-inline: 1rem;
       height: 13rem;
       display: flex;
@@ -10,9 +12,10 @@ ion-content {
       align-items: center;
     }
 
-    .body {
+    .login-body {
       background-color: var(--ion-color-light);
-      height: 100%;
+      flex: 1;
+      // height: 100%;
       padding: 1rem;
       border-top-left-radius: 1.5rem;
       border-top-right-radius: 1.5rem;
@@ -101,6 +104,7 @@ ion-content {
             width: 4rem;
             --background: var(--ion-background-color);
             --border-radius: 0.5rem;
+            --box-shadow: none;
             margin-left: 0.5rem;
             margin-right: 0.5rem;
           }
@@ -108,6 +112,7 @@ ion-content {
 
         .sign-up {
           text-align: center;
+          cursor: pointer;
 
           span {
             color: var(--ion-color-primary);
@@ -119,20 +124,44 @@ ion-content {
 }
 
 // Media Queries
+@media only screen and (min-width: 425px) and (max-width: 991px) {
+  ion-content {
+    .login-container {
+      .login-header {
+        max-width: 425px;
+        margin-inline: auto;
+      }
+
+      .login-body {
+        .body-header,
+        .body-content {
+          max-width: 425px;
+          margin-inline: auto;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 992px) {
   ion-content {
     height: min-content;
-    .container {
+    .login-container {
       display: flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
       height: 100%;
 
-      .header {
+      .login-header {
         width: 50%;
+
+        img {
+          width: 70%;
+        }
       }
 
-      .body {
+      .login-body {
         position: relative;
         width: 50%;
         height: 100%;
@@ -143,57 +172,6 @@ ion-content {
         border-top-left-radius: 1.5rem;
         border-top-right-radius: unset;
         border-bottom-left-radius: 1.5rem;
-
-        .body-header {
-          h5 {
-          }
-        }
-
-        .body-content {
-          ion-item {
-            ion-icon {
-            }
-
-            ion-input {
-              ::ng-deep .label-text {
-              }
-            }
-
-            ion-input.has-focus.ng-valid {
-              ::ng-deep .label-text {
-              }
-            }
-
-            ion-input.has-focus.ng-invalid {
-              ::ng-deep .label-text {
-              }
-            }
-          }
-
-          .change-password {
-          }
-
-          ion-button {
-          }
-
-          .sign-using {
-            .line {
-            }
-
-            p {
-            }
-          }
-
-          .other-sign-method {
-            ion-button {
-            }
-          }
-
-          .sign-up {
-            span {
-            }
-          }
-        }
       }
     }
   }
