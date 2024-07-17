@@ -22,7 +22,7 @@
       h5 {
         color: var(--ion-color-primary-shade);
         font-weight: bold;
-        font-size: 1.75rem;
+        font-size: clamp(1.75rem, 1.714rem + 0.179vw, 2rem);
         letter-spacing: 0.3rem;
         text-align: center;
       }
