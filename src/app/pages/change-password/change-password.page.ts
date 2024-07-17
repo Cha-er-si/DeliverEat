@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { UserAuthenticationService } from 'src/app/services/user-authentication.service';
 
 @Component({
@@ -59,7 +59,8 @@ export class ChangePasswordPage implements OnInit {
     private formBuilder: FormBuilder,
     private userAuthService: UserAuthenticationService,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private navController: NavController
   ) {}
 
   ngOnInit() {
@@ -103,6 +104,10 @@ export class ChangePasswordPage implements OnInit {
         ),
       }
     );
+  }
+
+  goBack() {
+    this.navController.pop();
   }
 
   matchingPasswordsValidator(
@@ -150,7 +155,21 @@ export class ChangePasswordPage implements OnInit {
             console.log(res);
             const result = JSON.parse(JSON.stringify(res));
             if (result.trans == 'success') {
-              this.router.navigate(['/login']);
+              const alert = await this.alertController.create({
+                header: 'Change Password Success',
+                message:
+                  'Password Change is successful. Please login with your new password.',
+                buttons: [
+                  {
+                    text: 'OK',
+                    handler: () => {
+                      this.router.navigate(['/login']);
+                    },
+                  },
+                ],
+              });
+
+              await alert.present();
             } else {
               const alert = await this.alertController.create({
                 header: 'Change Password Failed',
