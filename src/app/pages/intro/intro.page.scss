@@ -1,0 +1,173 @@
+ion-content {
+  --background: var(--ion-color-primary);
+
+  ion-fab {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+
+    ion-fab-button {
+      --border-radius: 0.9rem;
+
+      p {
+        display: none;
+      }
+    }
+  }
+
+  .container {
+    height: 100%;
+    overflow: hidden;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-inline: 1rem;
+
+      img {
+        margin-block: 2rem;
+      }
+
+      p {
+        text-align: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+    }
+
+    .body {
+      position: relative;
+      height: 100%;
+      width: 100%;
+
+      img {
+        position: absolute;
+        left: 30%;
+        transform: translateX(-50%);
+        margin-top: 3rem;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (min-width: 425px) {
+  ion-content {
+    .container {
+      .body {
+        img {
+          margin-top: -1rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  ion-content {
+    .container {
+      .header {
+        img {
+          padding-inline: 20%;
+        }
+
+        p {
+          padding-inline: 22%;
+          font-size: 1.5rem;
+        }
+      }
+
+      .body {
+        img {
+          margin-top: -3rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  ion-content {
+    ion-fab {
+      ion-fab-button {
+        width: 10rem;
+
+        p {
+          display: block;
+          font-weight: bold;
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 50% 50%;
+
+      .header {
+        order: 2;
+      }
+
+      .body {
+        order: 1;
+        img {
+          left: unset;
+          transform: translateX(0%);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  ion-content {
+    .container {
+      display: grid;
+      grid-template-columns: 40% 60%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  ion-content {
+    ion-fab {
+      ion-fab-button {
+        width: 15rem;
+
+        p {
+          font-size: 1.3rem;
+        }
+
+        ion-icon {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 30% 70%;
+    }
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  ion-content {
+    .container {
+      display: grid;
+      grid-template-columns: 30% 70%;
+
+      .header {
+        p {
+          font-size: 2.5rem;
+        }
+      }
+
+      .body {
+        img {
+          width: 100rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+<ion-content>
+  <div class="register-container">
+    <div class="register-header">
+      <img src="assets/images/logo/Logo Normal.png" />
+    </div>
+    <div class="register-body">
+      <div class="register-body-header">
+        <h5>REGISTER</h5>
+      </div>
+      <div class="register-body-content">
+        <form [formGroup]="regForm" #form="ngForm">
+          <div class="form-group">
+            <ion-item lines="none">
+              <ion-icon name="mail"></ion-icon>
+              <ion-input
+                label="Email"
+                labelPlacement="floating"
+                placeholder="example@example.com"
+                formControlName="email"
+              >
+              </ion-input>
+            </ion-item>
+            <div class="validators-errors">
+              <ng-container *ngFor="let validation of validationMessages.email">
+                <div
+                  class="error-message"
+                  *ngIf="regForm.controls['email'].hasError(validation.type) && (regForm.controls['email'].dirty || regForm.controls['email'].touched)"
+                >
+                  <ion-icon
+                    slot="start"
+                    name="information-circle-outline"
+                  ></ion-icon>
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group">
+            <ion-item lines="none">
+              <ion-icon name="at-circle"></ion-icon>
+              <ion-input
+                label="Username"
+                labelPlacement="floating"
+                placeholder="Enter your username"
+                formControlName="username"
+              >
+              </ion-input>
+            </ion-item>
+            <div class="validators-errors">
+              <ng-container
+                *ngFor="let validation of validationMessages.username"
+              >
+                <div
+                  class="error-message"
+                  *ngIf="regForm.controls['username'].hasError(validation.type) && (regForm.controls['username'].dirty || regForm.controls['username'].touched)"
+                >
+                  <ion-icon
+                    slot="start"
+                    name="information-circle-outline"
+                  ></ion-icon>
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group">
+            <ion-item lines="none">
+              <app-password-toggle-show-hide>
+                <ion-icon name="lock-closed"></ion-icon>
+                <ion-input
+                  label="Password"
+                  labelPlacement="floating"
+                  placeholder="Enter your password"
+                  type="password"
+                  formControlName="password"
+                ></ion-input>
+              </app-password-toggle-show-hide>
+            </ion-item>
+            <div class="validators-errors">
+              <ng-container
+                *ngFor="let validation of validationMessages.password"
+              >
+                <div
+                  class="error-message"
+                  *ngIf="regForm.controls['password'].hasError(validation.type) && (regForm.controls['password'].dirty || regForm.controls['password'].touched)"
+                >
+                  <ion-icon
+                    slot="start"
+                    name="information-circle-outline"
+                  ></ion-icon>
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group">
+            <ion-item lines="none">
+              <app-password-toggle-show-hide>
+                <ion-icon name="lock-closed"></ion-icon>
+                <ion-input
+                  label="Confirm Password"
+                  labelPlacement="floating"
+                  placeholder=""
+                  type="password"
+                  formControlName="confirmpass"
+                ></ion-input>
+              </app-password-toggle-show-hide>
+            </ion-item>
+            <div class="validators-errors">
+              <ng-container
+                *ngFor="let validation of validationMessages.confirmpass"
+              >
+                <div
+                  class="error-message"
+                  *ngIf="regForm.controls['confirmpass'].hasError(validation.type) && (regForm.controls['confirmpass'].dirty || regForm.controls['confirmpass'].touched)"
+                >
+                  <ion-icon
+                    slot="start"
+                    name="information-circle-outline"
+                  ></ion-icon>
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <ion-button expand="block" (click)="register()">SIGN UP</ion-button>
+          <div class="sign-using">
+            <div class="line"></div>
+            <p>Sign In Using</p>
+            <div class="line"></div>
+          </div>
+          <div class="other-sign-method">
+            <ion-button>
+              <img src="assets/images/login/logos_facebook.png" />
+            </ion-button>
+            <ion-button>
+              <img src="assets/images/login/flat-color-icons_google.png" />
+            </ion-button>
+            <ion-button>
+              <img src="assets/images/login/devicon_twitter.png" />
+            </ion-button>
+          </div>
+          <p class="sign-in">
+            Already a Member?
+            <span routerLink="/login">Login</span>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>
