@@ -25,6 +25,8 @@ mongoose
   );
 
 // Routes
+const adminUserRoutes = require("./routes/admin.route");
+const adminProductsRoutes = require("./routes/admin-products.route");
 const userRoutes = require("./routes/user.route");
 const dashboardRoutes = require("./routes/dashboard.route");
 const authRoute = require("./routes/auth.route");
@@ -40,6 +42,8 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
+app.use("/admin", adminUserRoutes);
+app.use("/admin", adminProductsRoutes);
 app.use("/user", userRoutes);
 app.use("/dashboard", dashboardRoutes);
 app.use("/auth", authRoute);

@@ -1,7 +1,16 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Welcome! {{firstName == "" ? username : firstName}}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content>
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <div class="welcome-message">
+        <img src="assets/images/dashboard/character.svg" />
+        <p>Welcome back, {{firstName == "" ? username : firstName}}!</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

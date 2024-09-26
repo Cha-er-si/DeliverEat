@@ -24,8 +24,10 @@ export class LoginPage implements OnInit {
     this.userAuthService.login(this.username, this.password).subscribe(
       async (res) => {
         const result = JSON.parse(JSON.stringify(res));
-        if (result.trans == 'success') {
-          this.router.navigate(['dashboard']);
+        if (result.trans === 'success') {
+          result.role === 'user'
+            ? this.router.navigate(['dashboard'])
+            : this.router.navigate(['admin-dashboard']);
         } else {
           const alert = await this.alertController.create({
             header: 'Login Failed',

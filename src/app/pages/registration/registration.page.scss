@@ -31,6 +31,9 @@
     .register-body-content {
       margin: 0.8rem;
       margin-top: 1.5rem;
+      width: 100%;
+      max-width: 425px;
+      margin-inline: auto;
 
       ion-item {
         border-radius: 0.5rem;
@@ -134,31 +137,6 @@
 }
 
 // Media Queries
-
-@media only screen and (min-width: 425px) and (max-width: 991px) {
-  ion-content {
-    .register-container {
-      .register-header {
-        img {
-          max-width: 425px;
-          margin-inline: auto;
-        }
-      }
-
-      .register-body {
-        max-width: 425px;
-        margin-inline: auto;
-
-        .body-header,
-        .body-content {
-          max-width: 425px;
-          margin-inline: auto;
-        }
-      }
-    }
-  }
-}
-
 @media only screen and (min-width: 992px) {
   ion-content {
     height: min-content;

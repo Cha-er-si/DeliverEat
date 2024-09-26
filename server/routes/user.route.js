@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../model/User");
 const bcyrpt = require("bcrypt");
+const generate_random_password = require("../helper/generate-random-password.js");
 
 const {
   verifyAccessToken,
@@ -29,7 +30,6 @@ const isPasswordNull = (password) => {
 };
 
 // Routes
-
 router.get("/", verifyAccessToken, async (req, res) => {
   try {
     const user = await User.findById(req.payload.user_id).select("-password");
@@ -42,9 +42,17 @@ router.get("/", verifyAccessToken, async (req, res) => {
 router.post("/register", async (req, res) => {
   debugger;
   try {
-    const { firstName, lastName, email, username, password } = req.body;
+    const {
+      firstName,
+      lastName,
+      shopName,
+      email,
+      username,
+      password,
+      role = "user",
+    } = req.body;
 
-    if (await userExists(req.body.email)) {
+    if (await userExists(email)) {
       return res
         .status(409)
         .json({ trans: "invalid", error: "Email already exists." });
@@ -58,9 +66,11 @@ router.post("/register", async (req, res) => {
       await new User({
         firstName,
         lastName,
+        shopName,
         email,
         username,
         password,
+        role,
       })
         .save()
         .then(async (user) => {
@@ -105,7 +115,7 @@ router.post("/login", async (req, res) => {
             process.env.JWT_ACCESS_TOKEN = accessToken;
             process.env.JWT_REFRESH_TOKEN = refreshToken;
 
-            return res.json({ trans: "success" });
+            return res.json({ trans: "success", role: user.role });
           });
       })
       .catch((err) => {
@@ -136,6 +146,33 @@ router.post("/change-password", async (req, res) => {
 
         return res.status(200).json({ trans: "success" });
       });
+    } else {
+      return res
+        .status(401)
+        .json({ trans: "failed", error: "User does not exist" });
+    }
+  } catch (error) {
+    return res.status(500).json({ trans: "failed", error: error.message });
+  }
+});
+
+router.post("/recover-password", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (await userExists(email)) {
+      const user = await User.findOne({
+        email: email.toLowerCase().trim(),
+      });
+
+      const newRandomPassword =
+        generate_random_password.generateRandomPassword();
+
+      Object.assign(user, { password: newRandomPassword });
+
+      user.save();
+
+      return res.status(200).json({ trans: "success", newRandomPassword });
     } else {
       return res
         .status(401)

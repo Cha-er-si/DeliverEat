@@ -2,14 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcyrpt = require("bcrypt");
 
-let User = new Schema(
+let AdminUser = new Schema(
   {
-    firstName: {
-      type: String,
-    },
-    lastName: {
-      type: String,
-    },
     shopName: {
       type: String,
     },
@@ -35,11 +29,11 @@ let User = new Schema(
   }
 );
 
-User.pre("save", async function (next) {
+AdminUser.pre("save", async function (next) {
   let salt = await bcyrpt.genSalt(11);
   let passwordHashed = await bcyrpt.hash(this.password, salt);
   this.password = passwordHashed;
   next();
 });
 
-module.exports = mongoose.model("User", User);
+module.exports = mongoose.model("AdminUser", AdminUser);
