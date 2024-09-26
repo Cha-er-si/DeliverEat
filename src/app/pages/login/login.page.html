@@ -1,0 +1,61 @@
+<ion-content>
+  <div class="login-container">
+    <div class="login-header">
+      <img src="assets/images/logo/Logo Normal.png" />
+    </div>
+    <div class="login-body">
+      <div class="body-header">
+        <h5>LOGIN</h5>
+      </div>
+      <div class="body-content">
+        <ion-item lines="none">
+          <ion-icon name="person"></ion-icon>
+          <ion-input
+            label="Username"
+            labelPlacement="floating"
+            placeholder="Enter your username"
+            [(ngModel)]="username"
+          >
+          </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <app-password-toggle-show-hide>
+            <ion-icon name="lock-closed"></ion-icon>
+            <ion-input
+              label="Password"
+              labelPlacement="floating"
+              placeholder="Enter your password"
+              type="password"
+              [(ngModel)]="password"
+            ></ion-input>
+          </app-password-toggle-show-hide>
+        </ion-item>
+        <div class="change-password-container">
+          <p class="change-password" routerLink="/change-password">
+            Recover Password
+          </p>
+        </div>
+        <ion-button expand="block" (click)="login()">SIGN IN</ion-button>
+        <div class="sign-using">
+          <div class="line"></div>
+          <p>Sign In Using</p>
+          <div class="line"></div>
+        </div>
+        <div class="other-sign-method">
+          <ion-button>
+            <img src="assets/images/login/logos_facebook.png" />
+          </ion-button>
+          <ion-button>
+            <img src="assets/images/login/flat-color-icons_google.png" />
+          </ion-button>
+          <ion-button>
+            <img src="assets/images/login/devicon_twitter.png" />
+          </ion-button>
+        </div>
+        <p class="sign-up">
+          New to DeliverEat? <span routerLink="/registration">Register</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>

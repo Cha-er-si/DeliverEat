@@ -1,0 +1,42 @@
+ion-content {
+  .dashboard-container {
+    .dashboard-header {
+      margin-top: 0.5rem;
+      height: 5rem;
+      width: 90%;
+      margin-inline: auto;
+      display: flex;
+
+      .welcome-message {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-content: center;
+        background-color: var(--ion-color-light);
+        height: 60%;
+        width: clamp(18rem, 16.286rem + 8.571vw, 30rem);
+        margin: auto 0rem 0rem auto;
+        text-align: right;
+        padding: 0.5rem;
+        font-weight: bold;
+        font-size: clamp(0.85rem, 0.757rem + 0.464vw, 1.5rem);
+        border-radius: 0.5rem;
+
+        img {
+          position: absolute;
+          left: -0.5rem;
+          bottom: 0;
+        }
+
+        p {
+          margin: 0;
+          height: fit-content;
+        }
+      }
+    }
+
+    .dashboard-body {
+    }
+  }
+}

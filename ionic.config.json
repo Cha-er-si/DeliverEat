@@ -1,0 +1,8 @@
+{
+  "name": "delivereat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "host": "delivereat.local"
+}
